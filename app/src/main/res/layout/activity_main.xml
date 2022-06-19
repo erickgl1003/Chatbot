@@ -1,39 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:gravity="bottom"
+    tools:context=".MainActivity"
+    android:background="@color/second">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvChat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <LinearLayout
+    <ScrollView
+        android:id="@+id/svChatList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/llWriteMessage"
+        android:fillViewport="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:orientation="vertical">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvChat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/llWriteMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_margin="5dp"
         android:orientation="horizontal">
-
-        <EditText
-            android:layout_width="0dp"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvMessageLayout"
             android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
             android:layout_weight="4"
-            android:layout_marginEnd="5sp"
-            android:inputType="text"
-            android:hint="Write a message..."/>
+            android:layout_gravity="end"
+            android:elevation="8dp"
+            app:cardCornerRadius="8dp"
+            android:layout_margin="5dp">
+            <EditText
+                android:id="@+id/etWriteMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5sp"
+                android:inputType="text"
+                android:hint="@string/message_hint"
+                android:importantForAutofill="no" />
+        </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/mbtnSend"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/main"
             app:icon="@drawable/ic_baseline_send_24"
             app:iconPadding="0dp"
-            app:iconGravity="textStart" />
+            app:iconGravity="textStart"
+            android:layout_marginStart="10dp"/>
 
     </LinearLayout>
 
@@ -41,4 +71,4 @@
 
 
 
-</LinearLayout>
+</RelativeLayout>
