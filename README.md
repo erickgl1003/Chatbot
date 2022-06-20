@@ -7,3 +7,7 @@
 Basic Android Studio chatbot project using Brainshop.ai Chatbot API and incluiding Material Design components.
 
 Based on the GeeksForGeeks tutorial: How to Create a Chatbot in Android with BrainShop API?
+
+
+https://user-images.githubusercontent.com/61529930/174683650-80602732-342b-4b87-be88-a52f3c6c8c38.mp4
+
